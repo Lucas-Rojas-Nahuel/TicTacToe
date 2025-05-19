@@ -1,13 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preload" href="style.css" as="style" />
+    <link rel="stylesheet" href="style.css" />
+    <meta
+      name="description"
+      content="Juega al clásico Tic Tac Toe (Tres en línea)"
+    />
     <script src="js.js" defer></script>
     <title>Tic Tac Toe</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <div class="game-container">
+      <!-- Datos del jugado -->
+      <div class="container-form">
+        <form id="playersForm" class="form">
+          <p>
+            Ingresa los nombres de los jugadores. Si los dejas en blanco, se
+            usarán "Jugador 1" y "Jugador 2" por defecto.
+          </p>
+          <div class="box-name-player">
+            <label for="playerOne">Nombre del jugador 1</label>
+            <input
+              type="text"
+              name="playerOne"
+              id="playerOne"
+              placeholder="Jugador 1"
+            />
+          </div>
+          <div class="box-name-player">
+            <label for="playerTwo">Nombre del jugador 2</label>
+            <input
+              type="text"
+              name="playerTwo"
+              id="playerTwo"
+              placeholder="Jugador 2"
+            />
+          </div>
+          <button type="submit" class="submit-btn">Iniciar</button>
+        </form>
+      </div>
+
+      <!-- Marcador -->
+      <div class="scoreboard hidden">
+        <div class="score-box selected-x">
+          <span class="player-name-one"></span>
+          <div class="player-score">
+            <span class="player-symbol">X</span>
+            <span id="score-x" class="score-num"></span>
+          </div>
+        </div>
+        <div class="score-box selected-o">
+          <span class="player-name-two"></span>
+          <div class="player-score">
+            <span class="player-symbol">O</span>
+            <span id="score-o" class="score-num"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Estado del turno o resultado -->
+      <div id="status" class="status hidden">
+        <span id="current-player"></span>
+      </div>
+
+      <!-- Tablero -->
+      <div id="board" class="board hidden"></div>
+
+      <!-- Resultado final -->
+      <div id="end-message" class="end hidden">
+        <div id="winner-symbol" class="winner-symbol"></div>
+        <h2 id="result-text"></h2>
+      </div>
+
+      <!-- Botón de reinicio -->
+      <div class="container-btn hidden">
+        <button id="reset-button" >Reiniciar partida</button>
+        <button id="change-name-button" >Cambiar Nombre</button>
+      </div>
+    </div>
+  </body>
 </html>
